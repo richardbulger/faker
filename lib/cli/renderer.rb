@@ -23,7 +23,7 @@ module Faker
       end
 
       def call
-        if paginable?
+        if paginable? && paginate?
           pager.page(render)
         else
           output.puts(render)
@@ -72,6 +72,10 @@ module Faker
 
       def verbose?
         options[:verbose]
+      end
+
+      def paginate?
+        options[:paginate]
       end
 
       def verbose_output(method, const, arr)

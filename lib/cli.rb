@@ -25,6 +25,8 @@ module Faker
                                      desc: 'Display Faker constants with methods'
         method_option :verbose, aliases: '-v', type: :boolean,
                                 desc: 'Include sample Faker output'
+        method_option :paginate, aliases: '-p', type: :boolean,
+                                 desc: 'Paginate the results'
         def list(*)
           if options[:help]
             invoke :help, ['list']
@@ -40,6 +42,8 @@ module Faker
                                      desc: 'Display Faker constants with methods'
         method_option :verbose, aliases: '-v', type: :boolean,
                                 desc: 'Include sample Faker output'
+        method_option :paginate, aliases: '-p', type: :boolean,
+                                 desc: 'Paginate the results'
         def search(query)
           if options[:help]
             invoke :help, ['search']
