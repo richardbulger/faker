@@ -21,10 +21,12 @@ class TestFakerName < Test::Unit::TestCase
 
   def test_male_first_name
     assert @tester.male_first_name.is_a? String
+    assert no_duplicates('name.male_first_name')
   end
 
   def test_female_first_name
     assert @tester.female_first_name.is_a? String
+    assert no_duplicates('name.female_first_name')
   end
 
   def test_middle_name
@@ -33,6 +35,7 @@ class TestFakerName < Test::Unit::TestCase
 
   def test_last_name
     assert @tester.last_name.match(/(\w+\.? ?){3,4}/)
+    no_duplicates('name.last_name')
   end
 
   def test_prefix

@@ -43,3 +43,10 @@ def deterministically_verify(subject_proc, depth: 2, random: nil)
   end.repeated_combination(2) { |(first, second)| assert_equal first, second }
   # rubocop:enable Style/MultilineBlockChain
 end
+
+def no_duplicates(key)
+  array = Faker::Base.fetch_all(key)
+  duplicates = array.select { |e| array.count(e) > 1 }.uniq
+  print "Duplicates found: #{duplicates}" if duplicates.any?
+  duplicates.none?
+end

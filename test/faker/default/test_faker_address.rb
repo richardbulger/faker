@@ -37,6 +37,7 @@ class TestFakerAddress < Test::Unit::TestCase
 
   def test_street_suffix
     assert @tester.street_suffix.match(/\w+/)
+    assert no_duplicates('address.street_suffix')
   end
 
   def test_city_suffix
@@ -53,10 +54,12 @@ class TestFakerAddress < Test::Unit::TestCase
 
   def test_state
     assert @tester.state.match(/\w+/)
+    assert no_duplicates('address.state')
   end
 
   def test_country
     assert @tester.country.match(/\w+/)
+    assert no_duplicates('address.country')
   end
 
   def test_country_by_code
